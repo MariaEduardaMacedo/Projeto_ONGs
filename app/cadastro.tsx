@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import {View,Text,TextInput,TouchableOpacity,StyleSheet,} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import { useNavigation } from 'expo-router';
 
 const VolunteerRegistrationScreen = () => {
+  const navigation = useNavigation()
   const [area, setArea] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -12,8 +14,6 @@ const VolunteerRegistrationScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Cadastro de Voluntário</Text>
-
-      {/* Área de Atuação */}
       <Text style={styles.label}>Área de Atuação</Text>
       <Picker
         selectedValue={area}
@@ -23,7 +23,6 @@ const VolunteerRegistrationScreen = () => {
         <Picker.Item label="Selecione uma opção" value="" />
         <Picker.Item label="Atendimento" value="Atendimento" />
         <Picker.Item label="Eventos" value="Eventos" />
-        {/* Adicione outras opções aqui */}
       </Picker>
 
       {/* Nome */}
@@ -67,6 +66,12 @@ const VolunteerRegistrationScreen = () => {
       {/* Botão de cadastro */}
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Cadastrar</Text>
+      </TouchableOpacity>
+
+      {/*Botão tela inicial */}
+      <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('index')}
+      >
+        <Text>Ir para página inicial</Text>
       </TouchableOpacity>
     </View>
   );

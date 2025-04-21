@@ -1,7 +1,10 @@
 import React from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 const IndexScreen = () => {
+  const navigation = useNavigation();
   return (
       <View style={styles.container}>
         {/* Cabeçalho com o logo */}
@@ -13,7 +16,9 @@ const IndexScreen = () => {
         <Text style={styles.subtitle}>#FAÇA PARTE</Text>
         <Text style={styles.subtitle}>JUNTOS contra o câncer infantojuvenil</Text>
         {/* Botões */}
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('cadastro')}>
           <Text style={styles.buttonText}>Quero ser voluntário</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
