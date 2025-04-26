@@ -1,10 +1,11 @@
 import React from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { StackNavigationProp } from '@react-navigation/stack';
+import {RootStackParamList} from './navigation';
 
 const IndexScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
       <View style={styles.container}>
         {/* Cabeçalho com o logo */}
@@ -21,14 +22,18 @@ const IndexScreen = () => {
           onPress={() => navigation.navigate('cadastro')}>
           <Text style={styles.buttonText}>Quero ser voluntário</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Quero Doar</Text>
+        <TouchableOpacity
+          style={styles.button}>
+          <Text style={styles.buttonText} 
+          onPress={() => navigation.navigate('donnation')}>Quero doar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Prestação de Contas</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Sobre nós</Text>
+          <Text style={styles.buttonText}
+          onPress={() => navigation.navigate('SobreNos')}
+          >Sobre nós</Text>
         </TouchableOpacity>
         <View style={styles.footer}>
           <Image source={require('../assets/images/instagram.png')} style={styles.icon} />

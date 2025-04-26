@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import {View,Text,TextInput,TouchableOpacity,StyleSheet,} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from 'expo-router';
+import { StackNavigationProp } from '@react-navigation/stack';
+import {RootStackParamList} from './navigation';
+
 
 const VolunteerRegistrationScreen = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const [area, setArea] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -69,9 +72,9 @@ const VolunteerRegistrationScreen = () => {
       </TouchableOpacity>
 
       {/*Botão tela inicial */}
-      <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('index')}
-      >
-        <Text>Ir para página inicial</Text>
+      <TouchableOpacity style = {styles.button}
+       onPress={() => navigation.navigate('index')}>
+        <Text style={styles.buttonText}>Ir para página inicial</Text>
       </TouchableOpacity>
     </View>
   );
