@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import {RootStackParamList} from './navigation';
@@ -7,7 +7,7 @@ import {RootStackParamList} from './navigation';
 const IndexScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
         {/* Cabeçalho com o logo */}
         <View style={styles.header}>
           <Image style={styles.logo} source={require('../assets/images/mascote.png')}></Image>
@@ -28,27 +28,42 @@ const IndexScreen = () => {
           onPress={() => navigation.navigate('donnation')}>Quero doar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Prestação de Contas</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}
           onPress={() => navigation.navigate('SobreNos')}
           >Sobre nós</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}
+          onPress={() => navigation.navigate('MissionValues')}
+          >Missões e Valores</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}
+          onPress={() => navigation.navigate('Activites')}
+          >Atividades do Mês</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}
+          onPress={() => navigation.navigate('Contas')}
+          >Prestação de Contas </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Terms')}>
+          <Text style={styles.buttonText}>Termos e Condições</Text>
         </TouchableOpacity>
         <View style={styles.footer}>
           <Image source={require('../assets/images/instagram.png')} style={styles.icon} />
           <Image source={require('../assets/images/facebook.png')} style={styles.icon} />
           <Image source={require('../assets/images/youtube.png')} style={styles.icon} />
         </View>
-      </View>
+      </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#D1A1D1',
-    alignItems: 'center',
+  scrollContainer: {
+    flexGrow: 1,
+    backgroundColor: "#6A1B9A",
+    alignItems: "center",
     padding: 20,
   },
   header: {
