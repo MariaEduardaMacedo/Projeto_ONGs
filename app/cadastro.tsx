@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View,Text,TextInput,TouchableOpacity,StyleSheet,} from 'react-native';
+import {View,Text,TextInput,TouchableOpacity,StyleSheet,ImageBackground} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from 'expo-router';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -83,20 +83,22 @@ const VolunteerRegistrationScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E6E6FA',
+    backgroundColor: '#F3E5F5',
     padding: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#4B0082',
+    color: '#4A0072',
     marginBottom: 20,
+    letterSpacing: 1,
     textAlign: 'center',
   },
   label: {
-    fontSize: 18,
+    fontSize: 20,
     color: '#4B0082',
     marginBottom: 10,
+    fontWeight: 'bold'
   },
   input: {
     height: 40,
@@ -107,14 +109,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   button: {
-    backgroundColor: '#4B0082',
-    padding: 15,
-    borderRadius: 5,
+    backgroundColor: '#FFFFFF',
+    paddingVertical: 16,
+    paddingHorizontal: 25,
+    borderRadius: 12,
+    marginVertical: 8,
+    width: '90%',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 3,
+    elevation: 3,
   },
   buttonText: {
-    color: '#FFFFFF',
-    fontSize: 18,
+    color: '#7B1FA2',
+    fontSize: 17,
+    fontWeight: 'bold'
   },
 });
 

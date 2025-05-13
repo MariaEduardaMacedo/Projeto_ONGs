@@ -73,7 +73,7 @@ export default function CadastroDoacao() {
       {/*Botão de volta para tela iniclal*/}
       <TouchableOpacity style = {styles.button}
       onPress = {() => navigation.navigate('index')}>
-        <Text>Ir para página inicial</Text>
+        <Text style={styles.buttonText}>Ir para página inicial</Text>
       </TouchableOpacity>
     </View>
   );
@@ -82,26 +82,30 @@ export default function CadastroDoacao() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFC0CB',
+    backgroundColor: '#F3E5F5',
     padding: 20,
   },
   titulo: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 20,
-    color: '#A020F0',
+    letterSpacing: 1,
+    color: '#4A0072',
   },
   label: {
-    marginTop: 10,
-    fontWeight: 'bold',
-    color: '#8B008B',
+    fontSize: 20,
+    color: '#4B0082',
+    marginBottom: 10,
+    fontWeight: 'bold'
   },
   input: {
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 10,
-    marginTop: 5,
+    height: 40,
+    borderColor: '#4B0082',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 20,
+    paddingHorizontal: 10,
   },
   pickerContainer: {
     backgroundColor: '#fff',
@@ -114,8 +118,10 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   radio: {
-    fontSize: 16,
-    color: '#555',
+    fontSize: 20,
+    color: '#4B0082',
+    marginBottom: 10,
+    fontWeight: 'bold'
   },
   radioSelected: {
     fontSize: 16,
@@ -129,13 +135,22 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   button: {
-    backgroundColor: '#4B0082',
-    padding: 15,
-    borderRadius: 5,
+    backgroundColor: '#FFFFFF',
+    paddingVertical: 16,
+    paddingHorizontal: 25,
+    borderRadius: 12,
+    marginVertical: 8,
+    width: '90%',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 3,
+    elevation: 3,
   },
   buttonText: {
-    color: '#FFFFFF',
-    fontSize: 18,
+    color: '#7B1FA2',
+    fontSize: 17,
+    fontWeight: 'bold'
   },
 });
